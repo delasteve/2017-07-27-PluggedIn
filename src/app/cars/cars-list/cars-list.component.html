@@ -1,0 +1,9 @@
+<md-card *ngFor="let car of cars$ | async" style="margin-top: 10px; margin-bottom: 10px;">
+  <md-card-content>
+    <md-checkbox [checked]="car.isBoosted" (change)="boostCar(car)">
+      <section [ngClass]="{ boosted: car.isBoosted }">
+        {{ car.nickname }} ({{ car.year }} {{ car.make }} {{ car.model }})
+      </section>
+    </md-checkbox>
+  </md-card-content>
+</md-card>

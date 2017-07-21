@@ -1,11 +1,15 @@
 import { browser, by, element } from 'protractor';
 
-export class GoneInSixtySecondsPage {
+export class CarListPage {
   navigateTo() {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  checkFirstCheckbox() {
+    element.all(by.css('md-checkbox')).get(0).click();
+  }
+
+  getFirstCheckbox() {
+    return element.all(by.css('input')).get(0);
   }
 }

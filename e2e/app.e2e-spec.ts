@@ -1,14 +1,22 @@
-import { GoneInSixtySecondsPage } from './app.po';
+import { browser } from 'protractor';
+import { CarListPage } from './app.po';
 
 describe('gone-in-sixty-seconds App', () => {
-  let page: GoneInSixtySecondsPage;
+  let page: CarListPage;
 
   beforeEach(() => {
-    page = new GoneInSixtySecondsPage();
+    page = new CarListPage();
   });
 
-  it('should display welcome message', () => {
+  it('should be able to check a checkbox', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+
+    browser.pause();
+
+    page.checkFirstCheckbox();
+
+    browser.pause();
+
+    expect(page.getFirstCheckbox().getAttribute('checked')).toBeTruthy();
   });
 });
